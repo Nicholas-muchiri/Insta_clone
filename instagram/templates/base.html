@@ -1,0 +1,50 @@
+{% load bootstrap4 %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Instagram - {{title}}</title>
+  {% else %}
+    <title> Instagram </title>
+  {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href='https://fonts.googleapis.com/css?family=Cambay' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Questrial' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% endblock %}
+
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="container search-section">
+        <div class="row">
+            <div class="col-md-12 search-form">
+                <form class="form-inline" role="search" action="{% url 'search_results' %}">
+                    <input class="form-control search-input" name="picture" type="search" placeholder="Search categories" aria-label="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    {% block content %} <h1 class='text-center'>Images {{date|date:"l d-F Y"}}</h1> {%endblock%}
+
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
+        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/demo.js"></script>
+
+
+     {% bootstrap_javascript %}
+     <link rel="stylesheet" href="{% static 'js/scripts.js' %}">
+    {% endblock %}
+</body>
+</html>
