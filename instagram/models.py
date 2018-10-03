@@ -8,6 +8,7 @@ from tinymce.models import HTMLField
 class Profile(models.Model):
     prof_pic = models.ImageField(upload_to='picture/',null=True)
     bio = HTMLField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
 
 
     def save_profile(self):
@@ -40,7 +41,7 @@ class Image(models.Model):
 
 
 
-    def save_picture(self):
+    def save_image(self):
         self.save()
 
 
@@ -51,7 +52,7 @@ class Image(models.Model):
 
     @classmethod
     def pics(cls):
-        pictures = cls.objects.all()
+        image = cls.objects.all()
         return image
 
 
