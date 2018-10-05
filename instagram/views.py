@@ -5,9 +5,10 @@ from .models import Image, Profile
 from django.contrib.auth.models import User
 
 # Create your views here.
+@login_required(login_url='/login/')
 def insta(request):
-    return render(request, 'insta.html')
-
+    post = Image.objects.all()
+    return render(request,'insta.html',{"post":post})
 
 def pics(request):
     pictures = Image.objects.all()

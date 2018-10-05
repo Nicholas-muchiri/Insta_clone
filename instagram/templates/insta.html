@@ -1,2 +1,11 @@
 {% extends 'base.html' %}
-<h1>Hello World</h1>
+{% block content %}
+{% for post in post %}
+ {{post.user.profile}}
+<img src="" >
+<img src="{{post.image.url}}"  width='500' height='500' alt="">
+posted {{post.pub_date|timesince}} ago
+{{post.image_name}}
+{% endfor %}
+
+{% endblock %}
