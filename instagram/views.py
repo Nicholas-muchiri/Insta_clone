@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from .models import Image, Profile
 from django.contrib.auth.models import User
+from .forms import SignupForm, ImageForm, ProfileForm, CommentForm
 
 # Create your views here.
 @login_required(login_url='/login/')
@@ -41,3 +42,22 @@ def profile(request, username):
     title = f'@{profile.username} Instagram photos and videos'
 
     return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images})
+
+
+def signup(request):
+    if request.user.is_authenticated():
+        return redirect('home')
+    else:
+        if request.method == 'POST':
+            form = SignupForm(request.POST)
+            if form.is_valid():
+                user = form.save(commit=False)
+                user.is_active = False
+                user.save()
+                current_site = get_current_site(request)
+                to_email = form.cleaned_data.get('email')
+                send_activation_email(user, current_site, to_email)
+                return HttpResponse('Confirm your email address to complete registration')
+        else:
+            form = SignupForm()
+            return render(request, 'registration/signup.html',{'form':form})
