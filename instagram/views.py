@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from .models import Image, Profile
@@ -92,3 +92,17 @@ def signup(request):
         else:
             form = SignupForm()
             return render(request, 'registration/signup.html',{'form':form})
+
+
+
+
+def add_comment(request,image_id):
+    images = get_object_or_404(Image, pk=image_id)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.profile = request.user.profile
+            comment.image = images
+            comment.save()
+    return redirect('insta')
