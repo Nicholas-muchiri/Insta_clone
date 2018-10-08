@@ -16,7 +16,7 @@ def pics(request):
 
     return render(request, "insta.html", {"pictures": pictures})
 
-# @login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/loglin/')
 # def insta(request, article_id):
 
 def search(request):
@@ -51,7 +51,6 @@ def upload_image(request):
         if form.is_valid():
             upload = form.save(commit=False)
             upload.Profile = request.user
-            # print(f'image is {upload.image}')
             upload.save()
         return redirect('profile', username=request.user)
     else:
@@ -77,7 +76,7 @@ def edit_profile(request):
 
 def signup(request):
     if request.user.is_authenticated():
-        return redirect('home')
+        return redirect('signup')
     else:
         if request.method == 'POST':
             form = SignupForm(request.POST)

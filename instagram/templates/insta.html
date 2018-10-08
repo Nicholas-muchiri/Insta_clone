@@ -1,12 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-{% for post in post %}
- {{post.user.profile}}
-<div class="container" class="col-md-7  col-sm-7 col-xs-7">
-<img src="{{post.image.url}}"  width='500' height='500' alt="">
-posted {{post.pub_date|timesince}} ago
-{{post.image_name}}
-</div>
-{% endfor %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
 
+        {% for post in post %}
+            <div class="card" style="width:520px;" >
+                {{post.profile.user.username }}
+                <div class="container" >
+                <img src="{{post.image.url}}"  width='500' height='500' alt="">
+                posted {{post.pub_date|timesince}} ago
+                {{post.image_name}}
+                    <input class="form-control" type="text">
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <br>
+            <br>
+        {% endfor %}
+        </div>
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
 {% endblock %}
