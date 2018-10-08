@@ -2,10 +2,11 @@
 {% block content %}
 {% for post in post %}
  {{post.user.profile}}
-<img src="" >
+<div class="jumbotron" class="col-md-7  col-sm-7 col-xs-7">
 <img src="{{post.image.url}}"  width='500' height='500' alt="">
 posted {{post.pub_date|timesince}} ago
 {{post.image_name}}
+</div>
 {% endfor %}
 
 {% endblock %}

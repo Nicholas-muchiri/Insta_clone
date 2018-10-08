@@ -7,8 +7,11 @@ from django.conf import settings
 urlpatterns = [
     url(r'^$', views.insta, name='insta'),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
+    url(r'^upload/$', views.upload_image, name='upload_image'),
+    url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
     url(r'^signup/$', views.signup, name='signup'),
-    url(r'^search/', views.search, name='search')
+    url(r'^search/', views.search, name='search'),
+    url(r'^edit/',views.edit_profile, name='edit_profile'),
 
  ]
 

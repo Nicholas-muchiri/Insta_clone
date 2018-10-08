@@ -44,6 +44,37 @@ def profile(request, username):
     return render(request, 'profile/profile.html', {'title':title, 'profile':profile, 'profile_details':profile_details, 'images':images})
 
 
+@login_required(login_url='/login')
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            upload = form.save(commit=False)
+            upload.Profile = request.user
+            # print(f'image is {upload.image}')
+            upload.save()
+        return redirect('profile', username=request.user)
+    else:
+        form = ImageForm()
+
+    return render(request, 'profile/upload_image.html', {'form': form})
+
+
+@login_required(login_url='/login')
+def edit_profile(request):
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            edit = form.save(commit=False)
+            edit.user = request.user
+            edit.save()
+            return redirect('edit_profile')
+    else:
+        form = ProfileForm()
+
+    return render(request, 'profile/edit_profile.html', {'form': form})
+
+
 def signup(request):
     if request.user.is_authenticated():
         return redirect('home')

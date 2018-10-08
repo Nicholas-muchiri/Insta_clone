@@ -4,10 +4,17 @@
 {% block content %}
 <div class="container">
     <div class="row signup-page">
-        <div class="col-md-6">
+        <div class="col-md-4">
+             <div class="lay">
+
+            </div>
+
             <img src="/static/img/phones.png" alt="Phone images">
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
             {% if form.errors %}
                 <p>Some information may be incorrect</p>
             {% endif %}
@@ -26,7 +33,7 @@
                     </div>
                 </div>
                 <div class="section">
-                    <p>Have an account? <a href="/accounts/login/">Sign In</a></p>
+                    <p>Have an account? <a href="/login/">Sign In</a></p>
                 </div>
             </div>
         </div>
