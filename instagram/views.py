@@ -86,7 +86,7 @@ def signup(request):
                 user = form.save(commit=False)
                 user.is_active = False
                 user.save()
-            return HttpResponse('Confirm your email address to complete registration')
+            return redirect('insta')
         else:
             form = SignupForm()
             return render(request, 'registration/signup.html',{'form':form})
