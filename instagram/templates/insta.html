@@ -9,8 +9,10 @@
                 {{post.profile.user.username }}
                 <div class="container" >
                 <img src="{{post.image.url}}"  width='500' height='500' alt="">
+                    {{post.image_name}}
+                    <br>
                 posted {{post.pub_date|timesince}} ago
-                {{post.image_name}}
+
                     <input class="form-control" type="text">
                     <br>
                     <br>
