@@ -32,7 +32,7 @@ psql
 CREATE DATABASE insta;
 ```
 ### .env file
-Create .env file and paste paste the following filling where appropriate:
+Create .env file and paste the following filling where appropriate:
 ```python
 SECRET_KEY = '<Secret_key>'
 DBNAME = 'insta'
