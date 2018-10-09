@@ -11,7 +11,7 @@
             <div class="section">
                 <h1>Instagram</h1>
                 <div class="form-section">
-                    <form action="/login/" method="POST">
+                    <form action="/accounts/login/" method="POST">
                         {% csrf_token %}
                         {% bootstrap_form form %}
                         <div class="form-group">
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="section">
-                <p>Don't have an account? <a href="/signup/">Sign-Up</a></p>
+                <p>Don't have an account? <a href="/">Sign-Up</a></p>
             </div>
         </div>
     </div>
