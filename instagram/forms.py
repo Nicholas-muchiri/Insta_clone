@@ -4,9 +4,6 @@ from django.contrib.auth.models import User
 from .models import Image, Profile, Comments
 
 
-# from pyuploadcare.dj.forms import FileWidget
-# from pyuploadcare.dj.models import ImageField
-
 class SignupForm(UserCreationForm):
     email = forms.EmailField(max_length=200, help_text='Required')
 
