@@ -7,13 +7,11 @@
         {% for post in post %}
             <div class="card" style="width:520px;" >
                 {{post.profile.user.username }}
-                <div class="container">
+                <div class="container" >
                 <img src="{{post.image.url}}"  width='500' height='500' alt="">
-                    <br>
-                    {{post.image_name}}
-                    <br>
                 posted {{post.pub_date|timesince}} ago
-
+                    <br>
+                {{post.image_name}}
                     <input class="form-control" type="text">
                     <br>
                     <br>
