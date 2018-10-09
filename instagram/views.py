@@ -4,10 +4,8 @@ from django.contrib.auth.decorators import login_required
 from .models import Image, Profile
 from django.contrib.auth.models import User
 from .forms import SignupForm, ImageForm, ProfileForm, CommentForm
-from django.contrib.sites.shortcuts import get_current_site
 from .tokens import account_activation_token
 from django.utils.encoding import force_bytes, force_text
-from .emails import send_activation_email
 
 # Create your views here.
 @login_required(login_url='/login/')
