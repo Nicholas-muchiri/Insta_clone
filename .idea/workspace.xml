@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9939c61e-bbbb-47b1-9408-4aca7e79311a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/instagram/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/instagram/templates/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="9939c61e-bbbb-47b1-9408-4aca7e79311a" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +27,7 @@
           <entry key="css" value="8" />
           <entry key="env" value="2" />
           <entry key="gitignore" value="2" />
-          <entry key="html" value="49" />
+          <entry key="html" value="50" />
           <entry key="jpg" value="1" />
           <entry key="js" value="3" />
           <entry key="md" value="2" />
@@ -41,7 +39,7 @@
         <counts>
           <entry key=".env file" value="1" />
           <entry key="CSS" value="8" />
-          <entry key="HTML" value="49" />
+          <entry key="HTML" value="50" />
           <entry key="Image" value="1" />
           <entry key="JavaScript" value="3" />
           <entry key="Markdown" value="2" />
@@ -144,7 +142,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/instagram/templates/base.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
@@ -153,11 +151,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/instagram/templates/registration/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret lean-forward="true" />
+            <state relative-caret-position="150">
+              <caret line="10" selection-start-line="10" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -496,13 +494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instagram/templates/registration/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/instagram/templates/profile/profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1080">
@@ -610,6 +601,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instagram/templates/registration/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="11" />
         </state>
       </provider>
     </entry>
