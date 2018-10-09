@@ -4,6 +4,10 @@ from django.contrib.auth.decorators import login_required
 from .models import Image, Profile
 from django.contrib.auth.models import User
 from .forms import SignupForm, ImageForm, ProfileForm, CommentForm
+from django.contrib.sites.shortcuts import get_current_site
+from .tokens import account_activation_token
+from django.utils.encoding import force_bytes, force_text
+from .emails import send_activation_email
 
 # Create your views here.
 @login_required(login_url='/login/')
@@ -105,3 +109,20 @@ def add_comment(request,image_id):
             comment.image = images
             comment.save()
     return redirect('insta')
+
+
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and account_activation_token.check_token(user, token):
+        user.is_active = True
+        user.save()
+        login(request, user)
+        return redirect('insta')
+        return HttpResponse('Thank you for confirming email. Now login to your account')
+    else:
+        return HttpResponse('Activation link is invalid')

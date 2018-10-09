@@ -6,6 +6,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^$', views.insta, name='insta'),
+    url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$', views.activate, name='activate'),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
     url(r'^comment/(?P<image_id>\d+)', views.add_comment, name='comment'),
     url(r'^upload/$', views.upload_image, name='upload_image'),
