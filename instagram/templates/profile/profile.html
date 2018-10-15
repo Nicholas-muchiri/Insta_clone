@@ -7,9 +7,9 @@
             <div class="row">
                 <div class="col-md-5 profile-image">
                     {% if profile_details.prof_pic %}
-                    <img src="{{profile_details.prof_pic.cdn_url}}" alt="profile-photo">
+                    <img src="{{profile_details.prof_pic.url}}" alt="photo" height="1px">
                     {% else %}
-                    <img src="/static/img/avatar.png" alt="avatar">
+                    <img src="/static/img/audi.jpg" alt="avatar">
                     {% endif %}
                 </div>
                 <div class="col-md-5 text-center">

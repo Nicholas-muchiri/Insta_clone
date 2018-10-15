@@ -77,19 +77,17 @@ def edit_profile(request):
 
 
 def signup(request):
-    if request.user.is_authenticated():
-        return redirect('signup')
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+             # user.is_active = False
+            user.save()
+        return redirect('insta')
     else:
-        if request.method == 'POST':
-            form = SignupForm(request.POST)
-            if form.is_valid():
-                user = form.save(commit=False)
-                user.is_active = False
-                user.save()
-            return redirect('insta')
-        else:
-            form = SignupForm()
-            return render(request, 'registration/signup.html',{'form':form})
+        form = SignupForm()
+
+    return render(request, 'registration/signup.html',{'form':form})
 
 
 

@@ -1,4 +1,3 @@
-
 from django.conf.urls import url
 from . import views
 from django.conf.urls.static import static
@@ -10,7 +9,6 @@ urlpatterns = [
     url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
     url(r'^comment/(?P<image_id>\d+)', views.add_comment, name='comment'),
     url(r'^upload/$', views.upload_image, name='upload_image'),
-    url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^search/', views.search, name='search'),
     url(r'^edit/',views.edit_profile, name='edit_profile'),
