@@ -6,6 +6,11 @@ from django.contrib.auth.models import User
 from .forms import SignupForm, ImageForm, ProfileForm, CommentForm
 from .tokens import account_activation_token
 from django.utils.encoding import force_bytes, force_text
+from django.contrib.sites.shortcuts import get_current_site
+from .emails import send_activation_email
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
 
 # Create your views here.
 @login_required(login_url='/login/')
@@ -76,20 +81,33 @@ def edit_profile(request):
     return render(request, 'profile/edit_profile.html', {'form': form})
 
 
+# def signup(request):
+#     if request.method == 'POST':
+#         form = SignupForm(request.POST)
+#         if form.is_valid():
+#             user = form.save(commit=False)
+#              # user.is_active = False
+#             user.save()
+#         return redirect('insta')
+#     else:
+#         form = SignupForm()
+#
+#     return render(request, 'registration/signup.html',{'form':form})
+
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-             # user.is_active = False
+            user.is_active = False
             user.save()
-        return redirect('insta')
+            current_site = get_current_site(request)
+            to_email = form.cleaned_data.get('email')
+            send_activation_email(user, current_site, to_email)
+            return HttpResponse('Please activate your email')
     else:
         form = SignupForm()
-
-    return render(request, 'registration/signup.html',{'form':form})
-
-
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 def add_comment(request,image_id):
